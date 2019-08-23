@@ -1,6 +1,5 @@
 {
   "name": "tiny-pixel/github-service-provider",
-  "type": "plugin",
   "license": "MIT",
   "description": "Github API services for Sage 10",
   "authors": [
@@ -41,7 +40,8 @@
   "extra": {
     "acorn": {
       "providers": [
-        "TinyPixel\\Acorn\\Github\\GithubServiceProvider"
+        "TinyPixel\\Acorn\\Github\\GithubServiceProvider",
+        "TinyPixel\\Acorn\\Github\\GithubPackageServiceProvider"
       ]
     }
   }
