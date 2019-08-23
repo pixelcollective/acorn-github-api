@@ -27,6 +27,8 @@ class GithubPackageServiceProvider extends ServiceProvider
     {
         $github = $this->app->make('github.wp');
 
-        dd($github->repo('gutenberg-playground'));
+        $github->setAccount('kellymears');
+
+        dd($github->openIssues('kellymears', 'block-sandbox'));
     }
 }
