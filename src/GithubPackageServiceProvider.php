@@ -26,9 +26,5 @@ class GithubPackageServiceProvider extends ServiceProvider
     public function boot()
     {
         $github = $this->app->make('github.wp');
-
-        $github->setAccount('kellymears');
-
-        dd($github->openIssues('kellymears', 'block-sandbox'));
     }
 }
