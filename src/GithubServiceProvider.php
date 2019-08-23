@@ -51,7 +51,7 @@ class GitHubServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                $source => config_path('github.php')
+                $source => $this->app->configPath('github.php')
             ]);
         }
 
