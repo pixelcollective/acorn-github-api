@@ -63,11 +63,7 @@ class Github
      */
     public function repo(string $repo, string $account = null) : array
     {
-        if (!$requestedAccount = $this->resolveAccount($account)) {
-            return;
-        }
-
-        return self::$repo->show($requestedAccount, $repo);
+        return self::$repo->show($this->resolveAccount($account), $repo);
     }
 
     /**
@@ -77,11 +73,7 @@ class Github
      */
     public function openIssues(string $repo, string $account = null) : array
     {
-        if (!$requestedAccount = $this->resolveAccount($account)) {
-            return;
-        }
-
-        return self::$issues->all($repo, $requestedAccount);
+        return self::$issues->all($repo, $this->resolveAccount($account));
     }
 
     /**
