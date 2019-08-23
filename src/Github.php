@@ -2,6 +2,7 @@
 
 namespace TinyPixel\Acorn\Github;
 
+use \Exception;
 use GrahamCampbell\Github\GithubManager;
 
 /**
@@ -43,13 +44,6 @@ class Github
     protected $account;
 
     /**
-     * API pluralizations
-     * @var array
-     */
-    protected static $apiInflection = [
-    ];
-
-    /**
      * Class constructor.
      *
      * @param \GrahamCampbell\Github\GithubManager $github
@@ -67,13 +61,13 @@ class Github
      *
      * @return array
      */
-    public function repo(string $repo, string $account = null)
+    public function repo(string $repo, string $account = null) : array
     {
         if (!$requestedAccount = $this->resolveAccount($account)) {
             return;
         }
 
-        return (array) self::$repo->show($requestedAccount, $repo);
+        return self::$repo->show($requestedAccount, $repo);
     }
 
     /**
@@ -81,7 +75,7 @@ class Github
      *
      * @return array
      */
-    public function openIssues(string $repo, string $account = null)
+    public function openIssues(string $repo, string $account = null) : array
     {
         if (!$requestedAccount = $this->resolveAccount($account)) {
             return;
@@ -96,13 +90,15 @@ class Github
      * @param  string $account
      * @return string
      */
-    protected function resolveAccount(string $account = null)
+    protected function resolveAccount(string $account = null) : string
     {
         if (isset($account)) {
             return $account;
         } elseif (!is_null($this->getAccount())) {
             return $this->getAccount();
         }
+
+        throw new Exception('Github account not preset or specified.');
     }
 
     /**
