@@ -1,5 +1,5 @@
 {
-  "name": "tiny-pixel/github-service-provider",
+  "name": "tiny-pixel/acorn-github-api",
   "license": "MIT",
   "description": "Github API services for Sage 10",
   "authors": [
