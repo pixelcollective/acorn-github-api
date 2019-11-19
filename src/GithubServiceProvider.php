@@ -3,8 +3,8 @@
 namespace TinyPixel\Acorn\Github;
 
 use Github\Client;
-use GrahamCampbell\GitHub\GithubFactory;
-use GrahamCampbell\GitHub\GithubManager;
+use GrahamCampbell\GitHub\GitHubFactory;
+use GrahamCampbell\GitHub\GitHubManager;
 use GrahamCampbell\GitHub\Authenticators\AuthenticatorFactory;
 use Illuminate\Contracts\Container\Container;
 use Roots\Acorn\Application;
